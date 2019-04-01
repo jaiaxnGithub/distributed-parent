@@ -40,7 +40,7 @@ public class SwaggerConfiguration {
                 //描述
                 .description("API 描述")
                 //创建人
-                .contact(new Contact("jaiaxn", "https://github.com/jaiaxnGithub/springboot-zk-demo", "wang.jiaxin110@iwhalecloud.com"))
+                .contact(new Contact("jaiaxn", "https://github.com/jaiaxnGithub/distributed-parent", "wang.jiaxin110@iwhalecloud.com"))
                 //版本号
                 .version("1.0")
                 .build();

@@ -1,0 +1,27 @@
+project:
+  name: 本地环境
+
+server:
+  port: 8083
+
+spring:
+  dubbo:
+    application:
+      name: distributed-web
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    protocol:
+      name: dubbo
+      port: 20883
+    scan: com.jaiaxn.distributed
+
+  #spring-session
+  session:
+    store-type: redis
+    timeout: PT30M  #30分钟
+
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 10MB

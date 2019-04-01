@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jaiaxn.distributed.system.mapper.SystemConfigMapper">
+    <sql id="allFields">
+        t.ID
+        ,t.CONF_ID
+        ,t.CONF_VALUE
+        ,t.CONF_STATUS
+    </sql>
+
+    <select id="querySystemConfigParamByCondition"
+            resultType="com.jaiaxn.distributed.system.dto.resp.SystemConfigQueryResp">
+        select <include refid="allFields" />
+        from system_config t
+        where 1=1
+        <if test="null != req.confId and '' != req.confId">
+            and t.CONF_ID = #{req.confId}
+        </if>
+        <if test="null != req.confValue and '' != req.confValue">
+            and t.CONF_VALUE like CONCAT(CONCAT('%',#{req.confValue}),'%')
+        </if>
+        <if test="null != req.confStatus and '' != req.confStatus">
+            and t.CONF_STATUS = #{req.confStatus}
+        </if>
+    </select>
+</mapper>

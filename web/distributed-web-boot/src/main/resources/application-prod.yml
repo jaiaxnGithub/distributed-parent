@@ -1,0 +1,39 @@
+project:
+  name: 生产环境
+
+server:
+  port: 8083
+
+spring:
+  dubbo:
+    application:
+      name: distributed-web
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    protocol:
+      name: dubbo
+      port: 20883
+    scan: com.jaiaxn.distributed
+
+  redis:
+    host: 106.13.65.122
+    port: 6379
+    timeout: 0
+    database: 0
+    pool:
+      max-active: 600
+      max-idle: 300
+      max-wait: 1000
+      min-idle: 5
+    password:
+
+  #spring-session
+  session:
+    store-type: redis
+    timeout: PT30M  #30分钟
+
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 10MB

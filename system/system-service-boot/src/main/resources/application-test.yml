@@ -1,0 +1,23 @@
+project:
+  name: 开发环境
+
+server:
+  port: 8023
+
+spring:
+  dubbo:
+    application:
+      name: system-test
+    registry:
+      address: zookeeper://106.13.65.122:2181
+    protocol:
+      name: dubbo
+      port: 20823
+    scan: com.jaiaxn.distribute
+
+spring.datasource:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://106.13.65.122:3306/jaiaxn_test_db?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+  username: jaiaxn
+  password: jaiaxn_!@#456
+

@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: local
+
+logging.level.com.jaiaxn.distribute.system.mapper: debug
+
+mybatis-plus:
+  mapper-locations: classpath:system/mapper/*.xml
+
+#主键生成策略
+db-type: TelDB
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+

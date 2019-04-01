@@ -6,3 +6,6 @@
 将项目下载至本地，导入idea，添加为maven项目，运行即可。
 
 swagger-ui地址：http://localhost:8083/swagger-ui.html
+
+可运行sql：
+根目录下的system_config.sql文件

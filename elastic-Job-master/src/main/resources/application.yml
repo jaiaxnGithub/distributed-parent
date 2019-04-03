@@ -1,0 +1,32 @@
+elaticjob:
+  zookeeper:
+    namespace: elastic-job
+    server-lists: 127.0.0.1:2181
+
+server:
+  port: 9019
+
+spring:
+  aop:
+    auto: true
+  dubbo:
+    application:
+      name: elastic-job
+    protocol:
+      name: dubbo
+      port: 20819
+      registry:
+        address: zookeeper://127.0.0.1:2181
+    scan: com.jaiaxn.distributed.elastic.job
+  jpa:
+      database: mysql
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+  datasource:
+    druid:
+      log:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://106.13.65.122:3306/jaiaxn_test_db?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+        username: jaiaxn
+        password: jaiaxn_!@#456

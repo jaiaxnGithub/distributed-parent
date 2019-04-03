@@ -3,16 +3,19 @@ package com.jaiaxn.distributed.system.manager;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.collect.Lists;
 import com.jaiaxn.distributed.system.common.SystemCommon;
 import com.jaiaxn.distributed.system.dto.SystemConfigDTO;
 import com.jaiaxn.distributed.system.dto.req.SystemConfigQueryForPageReq;
 import com.jaiaxn.distributed.system.dto.resp.SystemConfigQueryResp;
 import com.jaiaxn.distributed.system.entity.SystemConfig;
 import com.jaiaxn.distributed.system.mapper.SystemConfigMapper;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author: wang.jiaxin
@@ -59,4 +62,16 @@ public class SystemConfigManager {
         return systemConfigMapper.querySystemConfigParamByCondition(page, req);
     }
 
+    public void deleteSystemConfigParamInvalid(){
+        QueryWrapper<SystemConfig> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(SystemConfig.FieldNames.confStatus.getTableFieldName(), SystemCommon.systemStatus.INVALID.getCode());
+        List<SystemConfig> systemConfigList = systemConfigMapper.selectList(queryWrapper);
+        if (CollectionUtils.isNotEmpty(systemConfigList)) {
+            List<String> idList = Lists.newArrayList();
+            systemConfigList.forEach(item -> idList.add(item.getId()));
+            QueryWrapper<SystemConfig> deleteWrapper = new QueryWrapper<>();
+            deleteWrapper.in(SystemConfig.FieldNames.id.getTableFieldName(),idList);
+            systemConfigMapper.delete(deleteWrapper);
+        }
+    }
 }

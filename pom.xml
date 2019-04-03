@@ -7,13 +7,14 @@
         <module>system</module>
         <module>common</module>
         <module>web</module>
+        <module>elastic-Job-master</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.16.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <groupId>com.jaiaxn.distributed</groupId>

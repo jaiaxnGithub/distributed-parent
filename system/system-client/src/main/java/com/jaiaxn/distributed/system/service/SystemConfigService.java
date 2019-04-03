@@ -51,4 +51,9 @@ public interface SystemConfigService {
      * @return 查询结果
      */
     ResultVO<Page<SystemConfigQueryResp>> querySystemConfigParamByCondition(SystemConfigQueryForPageReq req);
+
+    /**
+     * 删除失效参数
+     */
+    void deleteSystemConfigParamInvalid();
 }

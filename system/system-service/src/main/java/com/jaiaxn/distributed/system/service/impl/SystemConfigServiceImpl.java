@@ -20,8 +20,8 @@ import com.alibaba.dubbo.config.annotation.Service;
  * @description:
  **/
 @Slf4j
-@Service
 @Component("systemConfigService")
+@Service(parameters = {"deleteSystemConfigParamInvalid.timeout","10000"})
 public class SystemConfigServiceImpl implements SystemConfigService {
 
     private final SystemConfigManager systemConfigManager;
@@ -87,5 +87,12 @@ public class SystemConfigServiceImpl implements SystemConfigService {
         Page<SystemConfigQueryResp> page = systemConfigManager.querySystemConfigParamByCondition(req);
         log.info("MemberGroupServiceImpl querySystemConfigParamByCondition resp={} ", JSON.toJSONString(page.getRecords()));
         return ResultVO.success(page);
+    }
+
+    @Override
+    public void deleteSystemConfigParamInvalid() {
+        log.info("MemberGroupServiceImpl deleteSystemConfigParamInvalid start ----->>>");
+        systemConfigManager.deleteSystemConfigParamInvalid();
+        log.info("MemberGroupServiceImpl deleteSystemConfigParamInvalid end ----->>>");
     }
 }

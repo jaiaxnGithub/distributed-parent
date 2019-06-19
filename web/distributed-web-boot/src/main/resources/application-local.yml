@@ -1,5 +1,5 @@
 project:
-  name: 本地环境
+  name: 开发环境
 
 server:
   port: 8083
@@ -14,6 +14,18 @@ spring:
       name: dubbo
       port: 20883
     scan: com.jaiaxn.distributed
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 0
+    database: 0
+    pool:
+      max-active: 600
+      max-idle: 300
+      max-wait: 1000
+      min-idle: 5
+  #    password:
 
   #spring-session
   session:

@@ -16,7 +16,7 @@ spring:
     scan: com.jaiaxn.distributed
 
   redis:
-    host: 106.13.65.122
+    host: 127.0.0.1
     port: 6379
     timeout: 0
     database: 0
@@ -25,7 +25,7 @@ spring:
       max-idle: 300
       max-wait: 1000
       min-idle: 5
-    password:
+#    password:
 
   #spring-session
   session:

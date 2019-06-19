@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
  * @date: 2019年04月03日
  * @description: 定时删除系统默认失效参数
  **/
-@ElasticSimpleJob(cron = "0/50 * * * * ?",
+@Slf4j
+@Component
+@ElasticSimpleJob(cron = "0/15 * * * * ?",
         jobName = "systemConfigDeleteJob",
         shardingTotalCount = 1,
         jobParameter = "测试参数",
         shardingItemParameters = "0=A,1=B",
         dataSource = "datasource")
-@Component
-@Slf4j
 public class SystemConfigDeleteJob implements SimpleJob {
 
     @Reference

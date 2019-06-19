@@ -17,7 +17,7 @@ spring:
 
 spring.datasource:
   driver-class-name: com.mysql.jdbc.Driver
-  url: jdbc:mysql://106.13.65.122:3306/jaiaxn_test_db?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+  url: jdbc:mysql://203.195.237.202:3306/jaiaxn_test_db?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
   username: jaiaxn
   password: jaiaxn_!@#456
 

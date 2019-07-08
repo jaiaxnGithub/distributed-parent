@@ -80,6 +80,14 @@ public class ResultVO<T> implements Serializable {
         return new ResultVO(resultCode.getCode(), resultCode.getDesc());
     }
 
+    public static <T> ResultVO<T> noLogin() {
+        return new ResultVO(ResultCodeEnum.NOT_LOGIN.getCode(), ResultCodeEnum.NOT_LOGIN.getDesc());
+    }
+
+    public static <T> ResultVO<T> noPermisiion() {
+        return new ResultVO(ResultCodeEnum.NO_PERMISSION.getCode(), ResultCodeEnum.NO_PERMISSION.getDesc());
+    }
+
     @JsonIgnore
     public boolean isSuccess() {
         return ResultCodeEnum.SUCCESS.getCode().equals(this.resultCode);

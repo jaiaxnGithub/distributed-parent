@@ -20,16 +20,17 @@ public enum ResultCodeEnum implements ResultCode {
     /**
      * 用户未登录
      */
-    NOT_LOGIN("100", "用户未登录"),
+    NOT_LOGIN("100", "请稍登录后再进行操作"),
+
     /**
-     * 服务器内部错误
+     * 用户未登录
      */
-    SYSTEM_ERROR("500", "服务器内部错误");
+    NO_PERMISSION("101", "当前用户没有此操作权限");
 
     private final String code;
     private final String desc;
 
-    private ResultCodeEnum(String code, String desc) {
+    ResultCodeEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

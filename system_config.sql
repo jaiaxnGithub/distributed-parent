@@ -1,11 +1,8 @@
 /*
  Navicat MySQL Data Transfer
 
- Source Server         : 百度云-jaiaxn
+ Source Server         : jaiaxn
  Source Server Type    : MySQL
- Source Server Version : 50643
- Source Host           : 106.13.65.122
- Source Database       : jaiaxn_test_db
 
  Target Server Type    : MySQL
  Target Server Version : 50643

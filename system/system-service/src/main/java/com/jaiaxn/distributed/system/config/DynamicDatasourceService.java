@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * @author: wang.jiaxin
  * @date: 2019年05月09日
- * @description: 动态数据源
+ * @description: 动态数据源处理逻辑
  **/
 @Service
 public class DynamicDatasourceService {

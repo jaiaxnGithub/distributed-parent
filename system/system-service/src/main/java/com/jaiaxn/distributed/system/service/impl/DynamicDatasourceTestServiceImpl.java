@@ -3,6 +3,7 @@ package com.jaiaxn.distributed.system.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.jaiaxn.distributed.commom.dto.CfgDataSource;
 import com.jaiaxn.distributed.commom.dto.ResultVO;
+import com.jaiaxn.distributed.commom.utils.EncypterUtil;
 import com.jaiaxn.distributed.system.config.DynamicDatasourceService;
 import com.jaiaxn.distributed.system.service.DynamicDatasourceTestService;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +36,10 @@ public class DynamicDatasourceTestServiceImpl implements DynamicDatasourceTestSe
         CfgDataSource dataSource = new CfgDataSource();
         dataSource.setDbUrl("jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=47.104.230.230)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orcl.lan)))");
         dataSource.setDbUserName("shyw_soc");
-        dataSource.setDbPassword("soc");
+        // soc加密后的结果Ws5oJFg7u8vro2O2YE+1fQ==
+        String encPwd = "Ws5oJFg7u8vro2O2YE+1fQ==";
+        String decPwd = EncypterUtil.getDecrypt(encPwd);
+        dataSource.setDbPassword(decPwd);
         dataSource.setMaxActive(100);
         dataSource.setConnectionTimeOut(100);
         dataSource.setMaxIdle(10);
